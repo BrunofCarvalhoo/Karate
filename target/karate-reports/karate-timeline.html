@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-2-thread-1","id":1},{"content":"pool-2-thread-2","id":2},{"content":"pool-2-thread-3","id":3},{"content":"pool-2-thread-4","id":4},{"content":"pool-2-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"features\/account\/cria-account[1:6]","start":1768236185392,"end":1768236192087,"title":"features\/account\/cria-account[1:6] 13:43:05.392-13:43:12.087 Criar usuario com sucesso"},{"id":2,"group":2,"content":"features\/account\/cria-account[2:22]","start":1768236185392,"end":1768236191880,"title":"features\/account\/cria-account[2:22] 13:43:05.392-13:43:11.880 Tentar criar usuario duplicado"},{"id":3,"group":3,"content":"features\/account\/delete-account[1:9]","start":1768236185392,"end":1768236196064,"title":"features\/account\/delete-account[1:9] 13:43:05.392-13:43:16.064 Deletar conta criada"},{"id":4,"group":4,"content":"features\/account\/delete-account[2:16]","start":1768236185392,"end":1768236196682,"title":"features\/account\/delete-account[2:16] 13:43:05.392-13:43:16.682 Falha ao deletar usuario sem autorizacao"},{"id":5,"group":5,"content":"features\/account\/gerarToken[1:6]","start":1768236185392,"end":1768236190228,"title":"features\/account\/gerarToken[1:6] 13:43:05.392-13:43:10.228 Gerar Token"},{"id":6,"group":5,"content":"features\/bookStore\/atualizar-livro[1.1:42]","start":1768236190249,"end":1768236200564,"title":"features\/bookStore\/atualizar-livro[1.1:42] 13:43:10.249-13:43:20.564 Atualizar com sucesso"},{"id":7,"group":2,"content":"features\/bookStore\/atualizar-livro[1.1:46]","start":1768236191890,"end":1768236200981,"title":"features\/bookStore\/atualizar-livro[1.1:46] 13:43:11.890-13:43:20.981 Atualizar com falha"},{"id":8,"group":1,"content":"features\/bookStore\/criar-livro[1.1:24]","start":1768236192096,"end":1768236199848,"title":"features\/bookStore\/criar-livro[1.1:24] 13:43:12.096-13:43:19.848 Criar livro com sucesso"},{"id":9,"group":3,"content":"features\/bookStore\/criar-livro[1.1:28]","start":1768236196072,"end":1768236201245,"title":"features\/bookStore\/criar-livro[1.1:28] 13:43:16.072-13:43:21.245 Criar livro com falha"},{"id":10,"group":4,"content":"features\/bookStore\/listar-Livros[1:6]","start":1768236196690,"end":1768236197709,"title":"features\/bookStore\/listar-Livros[1:6] 13:43:16.690-13:43:17.709 Listar os livros"},{"id":11,"group":4,"content":"features\/bookStore\/listar-livrosId[1.1:18]","start":1768236197714,"end":1768236198991,"title":"features\/bookStore\/listar-livrosId[1.1:18] 13:43:17.714-13:43:18.991 Pegar o id sucesso"},{"id":12,"group":4,"content":"features\/bookStore\/listar-livrosId[1.1:22]","start":1768236198996,"end":1768236200164,"title":"features\/bookStore\/listar-livrosId[1.1:22] 13:43:18.996-13:43:20.164 Pegar o id falha"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
