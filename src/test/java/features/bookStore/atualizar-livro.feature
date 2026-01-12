@@ -2,7 +2,7 @@ Feature: Atualizar livro
 
     Background: 
         Given url baseBookUrl
-        * def usuario = call read('classpath:features/account/cria-account.feature')
+        * def usuario = call read('classpath:features/account/cria-account.feature@conta')
         * def userId = usuario.userId
         * def token = usuario.token
         * def listarLivro = call read('classpath:features/bookStore/listar-Livros.feature')

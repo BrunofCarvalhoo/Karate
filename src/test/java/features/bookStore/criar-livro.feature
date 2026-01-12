@@ -2,7 +2,7 @@ Feature: Livros
 
     Background:
         Given url baseBookUrl
-        * def usuario = call read('classpath:features/account/cria-account.feature')
+        * def usuario = call read('classpath:features/account/cria-account.feature@conta')
         * def userId = usuario.userId
         * def nome = usuario.userLogin
         * def senha = usuario.userPassword
