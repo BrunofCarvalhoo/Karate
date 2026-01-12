@@ -1,17 +1,12 @@
 Feature: Gerar Token account
 
     Background: 
-    
-    Scenario: Gerar Token
         Given url baseUrl
+        * def bodyRequest = read('classpath:features/account/dadosAccount/dadoAccount.json')
+    Scenario: Gerar Token
+       
         And path "/GenerateToken"
-        And request
-            """
-            {
-            "userName": "#(userName)",
-            "password": "#(password)"
-            }
-            """
+        And request bodyRequest
         When method post
         Then status 200
         * def tokenGerado = response.token
